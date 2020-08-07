@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="ParkingRegistry.WPF.Views.ParkingList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+             xmlns:cc="clr-namespace:ParkingRegistry.Infrastructure.WPF.Controls;assembly=Infrastructure.WPF"
+             xmlns:vr="clr-namespace:ParkingRegistry.Infrastructure.WPF.ValidationRules;assembly=Infrastructure.WPF"
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:ParkingRegistry.WPF.ViewModels"
+             d:DataContext="{d:DesignInstance local:ParkingListViewModel}"
+             d:DesignHeight="450" 
+             d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+                <TextBox materialDesign:HintAssist.Hint="Rendszám vagy kártyaszám"
+                         materialDesign:HintAssist.HelperText="7 vagy 8 karakter"
+                         Style="{DynamicResource MaterialDesignFloatingHintTextBox}"    
+                         Width="200" 
+                         Margin="0 0 10 0" 
+                         VerticalAlignment="Top"
+                         MaxLength="8"
+                         >
+                    <TextBox.Text>
+                        <Binding Path="Search" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <vr:NotEmptyValidationRule ValidatesOnTargetUpdated="True"  />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <DatePicker materialDesign:HintAssist.Hint="Tól"
+                            Style="{DynamicResource MaterialDesignFloatingHintDatePicker}"         
+                            Width="100" 
+                            Margin="0 0 10 0" 
+                            SelectedDate="{Binding Path=StartDate}"
+                            VerticalAlignment="Bottom"
+                    />
+                <DatePicker 
+                            Width="100" 
+                            materialDesign:HintAssist.Hint="Ig" 
+                            Style="{DynamicResource MaterialDesignFloatingHintDatePicker}"  
+                            Margin="0 0 10 0" 
+                            SelectedDate="{Binding Path=EndDate}" 
+                            DisplayDateEnd="{x:Static sys:DateTime.Today}"
+                            VerticalAlignment="Bottom"
+                    />
+                <Button Content="Keresés" 
+                        Command="{Binding Path=ListCommand}" 
+                        VerticalAlignment="Bottom"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0" >
+                <ComboBox x:Name="Exports"
+                          materialDesign:HintAssist.Hint="Export típus"
+                            Style="{DynamicResource MaterialDesignFloatingHintComboBox}"  
+                          HorizontalAlignment="Right" 
+                          Width="150" 
+                          Margin="0 0 10 0" 
+                          VerticalAlignment="Bottom"
+                          DisplayMemberPath="Name"
+                          SelectedItem="{Binding Path=SelectedExporter}"
+                          ItemsSource="{Binding Path=Exporters}"
+                          >
+                </ComboBox>
+                <Button  HorizontalAlignment="Right" 
+                         VerticalAlignment="Bottom"
+                         Content="Export" 
+                         Command="{Binding Path=ExportCommand}"/>
+            </StackPanel>
+        </DockPanel>
+        <cc:DataGridEx Grid.Row="1" Margin="0 15 0 0"
+                  Visibility="{Binding Path=ParkingItems, Converter={StaticResource NullableToVisibilityConverter}}" 
+                  ItemsSource="{Binding Path=ParkingItems}"
+                  >
+        </cc:DataGridEx>
+    </Grid>
+</UserControl>

@@ -1,0 +1,40 @@
+﻿<Application x:Class="ParkingRegistry.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ParkingRegistry.WPF"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Startup="Application_Startup"
+
+             Exit="Application_Exit">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Dark" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ValidationErrorTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure.WPF;component/Styles/WindowStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--Greens: #18afa8 #22bdb6 Greys: #212121 #343434 #888888 Purple:#7c0566 Beige: #d0c89a-->
+            <!--Primary: #18afa8 #60e1d9 #007f79 Secondary: #7c0566 #ar4294 #4c003b TextOn P: #000000 Text on S: #d22121 -->
+            <!-- Material Dark: Background: #292929 PupupBackground: #121212 PopupForeground: #1d1d1d PupupTitleBackground:#1f1f1f PopupTitleForeGround:#e3e3e3 PopupTileText:#e1e1e1 PopUpTileTitle:#9c9c9c-->
+            <SolidColorBrush x:Key="MaterialDesignPaper" Color="#292929"/> <!--BackroundColor-->
+            <SolidColorBrush x:Key="MaterialDesignBody" Color="#DDFFFFFF"  /> <!--Text-->
+            <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#d8d8d8"  />
+            <!--Text-->
+            <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#22bdb6"/>  <!--buttons, hints-->
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#DDFFFFFF"/><!--Buttons Text color-->
+
+            <SolidColorBrush x:Key="MaterialDesignSnackbarBackground" Color="#121212"  />
+            <SolidColorBrush x:Key="MaterialDesignSnackbarMouseOver" Color="#3f3f41" />
+            <!-- accent -->
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#7c0566"/>  <!--snackbar button text-->
+            <SolidColorBrush x:Key="ValidationErrorBrush" Color="#CF6679"/>
+            <!--snackbar button text-->
+            
+            <Style TargetType="materialDesign:Snackbar">
+                <Setter Property="Foreground" Value="#e1e1e1" /> 
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

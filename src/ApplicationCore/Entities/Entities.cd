@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.PassCar">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <Members>
+      <Method Name="PassCar" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\PassCar.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Car" />
+      <Property Name="PaymentType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.Types.PaymentType">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <Members>
+      <Method Name="PaymentType" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAA=</HashCode>
+      <FileName>Entities\Types\PaymentType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.Customer">
+    <Position X="2.25" Y="6" Width="1.5" />
+    <Members>
+      <Field Name="_passes" Hidden="true" />
+      <Method Name="Customer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAQQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Entities\Customer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Passes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.PassCustomer">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <Members>
+      <Field Name="_cars" Hidden="true" />
+      <Method Name="PassCustomer" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Customer" Type="ParkingRegistry.ApplicationCore.Entities.Customer">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.984" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AIEAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\PassCustomer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+      <Property Name="PaymentType" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Cars" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.Parking">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAgAAAAAAAIAAAAAEAAAAA=</HashCode>
+      <FileName>Entities\Parking.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Car" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.BaseEntities.Entities.Car">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <Members>
+      <Field Name="_parkings" Hidden="true" />
+      <Method Name="Car" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Entities\BaseEntities\Car.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Parkings" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.CarCar">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <Members>
+      <Method Name="CarCar" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\CarCar.cs</FileName>
+      <NewMemberFileName>Entities\CarCustomer.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pass" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ParkingRegistry.ApplicationCore.Entities.CarCustomer">
+    <Position X="7.75" Y="3.75" Width="1.5" />
+    <Members>
+      <Method Name="CarCustomer" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\CarCustomer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pass" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
